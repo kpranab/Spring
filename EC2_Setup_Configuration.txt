@@ -1,0 +1,57 @@
+Login to aws console  http://aws.amazon.com 
+provide username and password
+go to services -> EC2(Elastic Computing Cloud) click on EC2 it will take you to dashboard.
+
+We can create different EC2 instances on different Data Center
+
+Click on lunch instances then select free tire instances like ubonto then free one is selected and then click on Next Configure instances details
+
+Then select the default one click on Next Add Storage keep it as it is next is adding Tags like naming the EC2 instance.
+
+Name -- EC2Spring
+
+Then next configure Security Group for allowing all select All Trafic but based on requirement we need to configure it 
+In the source select Anywhere in order to access from all location then click on last option which is reviewing page
+
+Then click on Lunch then a pop up will open then amazon is going to provide a private key which will be used to comment to amazon to every time.
+select the create a new key pair and provide a name then click on Download Key pair amazon provided private key to us and public key will be present inside amazon instance. latter on we will use this key.
+
+then click on lunch instance it will going to create the virtual machine based on the configuration which we have provided
+
+Using Action drop down you can start/stop/reboot/terminate it
+
+Connecting EC2 instance using Putty
+------------------------------------
+Download putty.exe and puttygen.exe file
+
+The private key provide by amazon is not accessable directly through putty so we need to convert this in to required format fot that puttygen tool is required
+
+Then open the puttygen tool and load the pem file and save it as private key.
+
+Then in order to connect to putty we need 3 things which we get from amazon console in the instance click on connect
+1->Host name i.e --> ec2-18-217-251-33.us-east-2.compute.amazonaws.com
+2->Username --> on Data section under the connection category in putty , copy the desired user name and past it there like -> ubuntu
+3->Authentication key i.e. the .pem private key which we have converted through puttygen tool -->Go to SSH->Auth import the converted file
+
+Then go back to the sessions section then save our current session provide a name to that session then click on open , Next time using the saved session we can able to open
+
+Now we are able to access our EC2 instance :: great
+
+pwd
+
+hostname
+
+nslookup ip-172-31-25-177
+
+lets do some shell sample program
+
+vi hello.sh
+
+insert echo "Hello amazon"
+
+then save and quite using wq
+
+run the file ./sh
+
+
+

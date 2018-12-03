@@ -1,0 +1,37 @@
+Create a Spring boot application and build it once we have the jar file build then we need to upload into the S3 bucket
+
+Create a bucket on S3 click on create and provide a name then create then upload the file to S3 bucket and provide Grant public read access then click on next
+
+Then need to install java on ubuntu EC2 instance 
+
+java -version --> it will prompt to use default java version
+
+need to update package manager of ubuntu --> sudo apt update
+
+Then update jre --> sudo apt-get install default-jre
+
+java -version --> Now java is installed on our EC2 instance
+
+Then download spring application jar in to EC2 instance 
+
+go to S3 bucket copy the application link i.e. https://s3.us-east-2.amazonaws.com/springbootpranab/springboot-jpa-poc-0.0.1-SNAPSHOT.jar
+
+use below command to download file from S3.
+
+wget https://s3.us-east-2.amazonaws.com/springbootpranab/springboot-jpa-poc-0.0.1-SNAPSHOT.jar . ->Download and put it on same folder
+
+if not then download winscp and connect to EC2 instance copy the jar file
+
+java -jar springboot-jpa-poc-0.0.1-SNAPSHOT.jar -->will start the server on port 8080
+
+how to access the application 
+
+go to EC2 instance and get the name of the server
+
+ec2-18-217-251-33.us-east-2.compute.amazonaws.com
+
+port -->8080
+
+http://ec2-18-217-251-33.us-east-2.compute.amazonaws.com:8080/getAllStudents
+
+http://ec2-18-217-251-33.us-east-2.compute.amazonaws.com:8080/createStudent
