@@ -25,6 +25,12 @@ public class Student {
 		super();
 	}
 
+	public Student(String name, String passportNumber) {
+		super();
+		this.name = name;
+		this.passportNumber = passportNumber;
+	}
+
 	public Student(Long id, String name, String passportNumber) {
 		super();
 		this.id = id;
