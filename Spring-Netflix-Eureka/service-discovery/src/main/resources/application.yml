@@ -1,0 +1,16 @@
+#spring.application.name=netflix-eureka-naming-server
+#server.port=8761
+
+#eureka.client.register-with-eureka=false
+#eureka.client.fetch-registry=false
+# Configure this Discovery Server
+eureka:
+  instance:
+    hostname: localhost
+  client: #Not a client
+    registerWithEureka: false
+    fetchRegistry: false
+
+# HTTP (Tomcat) port
+server:
+  port: 1111   

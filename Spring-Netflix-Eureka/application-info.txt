@@ -1,0 +1,28 @@
+Eureka Service discovery
+
+http://localhost:1111/
+
+Account service
+
+http://localhost:2222/createAccounts
+
+http://localhost:2222/accounts
+
+H2 console
+
+http://localhost:2222/console/
+
+Account Client
+
+http://localhost:8080/accountList
+
+http://localhost:8080/accountDetails?number=1
+
+
+Actuator
+
+http://localhost:2222/actuator
+
+http://localhost:8080/hystrix/  -->Open Hystrix dashboard
+
+http://localhost:8080/actuator/hystrix.stream -->Search this and monitor stream then hit your application url able to see graphs
