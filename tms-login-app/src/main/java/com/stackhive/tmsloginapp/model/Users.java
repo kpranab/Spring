@@ -18,8 +18,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Cascade;
-
 /**
  * @author Pranab Kumar Sahoo
  *
@@ -52,7 +50,7 @@ public class Users {
 	private int active;
 	
 	@OneToMany(cascade= CascadeType.ALL, fetch= FetchType.EAGER)
-	@JoinTable(name = "user_role", joinColumns= @JoinColumn(name = ""))
+	@JoinTable(name = "user_role", joinColumns= @JoinColumn(name = "user_id"), inverseJoinColumns= @JoinColumn(name = "role_id"))
 	private Set<Role> roles;
 	
 }
