@@ -3,6 +3,8 @@
  */
 package com.stackhive.tmsloginapp.repository;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.stackhive.tmsloginapp.model.Users;
@@ -12,5 +14,7 @@ import com.stackhive.tmsloginapp.model.Users;
  *
  */
 public interface UsersRepository extends JpaRepository<Users, Integer> {
+
+	Optional<Users> findByName(String userName);
 
 }
