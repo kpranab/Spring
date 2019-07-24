@@ -15,6 +15,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.stackhive.tmsloginapp.repository.UsersRepository;
+import com.stackhive.tmsloginapp.service.CustomUserDetailsService;
 
 /**
  * @author Pranab Kumar Sahoo
@@ -27,7 +28,7 @@ import com.stackhive.tmsloginapp.repository.UsersRepository;
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
-	private UserDetailsService userDetailsService;
+	private CustomUserDetailsService userDetailsService;
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
