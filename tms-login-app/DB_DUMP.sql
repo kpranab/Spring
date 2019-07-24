@@ -7,7 +7,7 @@ show databases;
 # Use database
 use sys;
 
-# role table script
+# Create role table script
 
 DROP TABLE IF EXISTS `role`;
 
@@ -17,7 +17,7 @@ CREATE TABLE `role` (
   PRIMARY KEY (`role_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-# user table script
+# Create user table script
 DROP TABLE IF EXISTS `user`;
 
 CREATE TABLE `user` (
@@ -31,7 +31,7 @@ CREATE TABLE `user` (
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-# user_role table script
+# Create user_role table script
 
 DROP TABLE IF EXISTS `user_role`;
 
@@ -43,3 +43,15 @@ CREATE TABLE `user_role` (
   CONSTRAINT `FK859n2jvi8ivhui0rl0esws6n` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
   CONSTRAINT `FKa68196081fvovjhkek5m97n3x` FOREIGN KEY (`role_id`) REFERENCES `role` (`role_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+# Insert script
+use sys;
+
+INSERT INTO `role` (`role_id`, `role`) VALUES (1,'ADMIN');
+INSERT INTO `role` (`role_id`, `role`) VALUES (2,'USER');
+
+INSERT INTO `user` (`user_id`, `active`, `email`, `first_name`, `last_name`, `middle_name`,`password`)
+VALUES (1,1,'admin@gmail.com','Pranab','Kumar','Sahoo','123'),
+	(2,1,'user@gmail.com','Dhiren','Kumar','Chhotaray','345');
+
+INSERT INTO `user_role` (`user_id`, `role_id`) VALUES (1,1);
