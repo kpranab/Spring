@@ -13,12 +13,18 @@ import org.springframework.web.bind.annotation.RestController;
  *
  */
 @RestController
-@RequestMapping("/tms")
 public class LoginController {
 
 	@PreAuthorize("hasAnyRole('ADMIN')")
-	@GetMapping("/login")
+	@GetMapping("/admin")
+	public String adminLogin() {
+		return "Admin Login successfull";
+	}
+
+	@PreAuthorize("hasAnyRole('USER')")
+	@GetMapping("/tms")
 	public String login() {
 		return "Login successfull";
 	}
+
 }
