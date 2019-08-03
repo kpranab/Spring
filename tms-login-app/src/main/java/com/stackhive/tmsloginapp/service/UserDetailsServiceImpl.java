@@ -33,17 +33,17 @@ public class UserDetailsServiceImpl implements UserDetailsService {
  
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        com.stackhive.tmsloginapp.model.User appUser = this.userRepository.findByName(userName);
+        com.stackhive.tmsloginapp.model.User user = this.userRepository.findByUserName(userName);
  
-        if (appUser == null) {
+        if (user == null) {
             System.out.println("User not found! " + userName);
             throw new UsernameNotFoundException("User " + userName + " was not found in the database");
         }
  
-        System.out.println("Found User: " + appUser);
+        System.out.println("Found User: " + user);
  
         // [ROLE_USER, ROLE_ADMIN,..]
-        List<String> roleNames = this.userRoleRepository.getRoleNames(appUser.getUserId());
+        List<String> roleNames = this.userRoleRepository.findByRole(user.getUserName());
  
         List<GrantedAuthority> grantList = new ArrayList<GrantedAuthority>();
         if (roleNames != null) {
@@ -54,8 +54,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             }
         }
  
-        UserDetails userDetails = (UserDetails) new User(appUser.getUserName(), //
-                appUser.getEncrytedPassword(), grantList);
+        UserDetails userDetails = (UserDetails) new User(user.getUserName(), //
+                user.getEncrytedPassword(), grantList);
  
         return userDetails;
     }

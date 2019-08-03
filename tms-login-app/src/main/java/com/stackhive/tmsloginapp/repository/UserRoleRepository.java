@@ -5,12 +5,7 @@ package com.stackhive.tmsloginapp.repository;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.stackhive.tmsloginapp.model.UserRole;
 
@@ -18,18 +13,7 @@ import com.stackhive.tmsloginapp.model.UserRole;
  * @author Pranab Kumar Sahoo
  *
  */
-@Repository
-@Transactional
-public class UserRoleRepository {
-@Autowired
-private EntityManager entityManager;
+public interface UserRoleRepository extends JpaRepository<UserRole, Long>{
 
-public List<String> getRoleNames(Long userId) {
-    String sql = "Select ur.Role.roleName from " + UserRole.class.getName() + " ur " //
-            + " where ur.User.userId = :userId ";
-
-    Query query = this.entityManager.createQuery(sql, String.class);
-    query.setParameter("userId", userId);
-    return query.getResultList();
-}
+	List<String> findByRole(String userName);
 }

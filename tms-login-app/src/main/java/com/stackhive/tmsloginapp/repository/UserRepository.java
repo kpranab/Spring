@@ -13,6 +13,6 @@ import com.stackhive.tmsloginapp.model.User;
  */
 public interface UserRepository extends JpaRepository<User, Long> {
 
-	  User findByName(String email);
+	  User findByUserName(String email);
 
 }
