@@ -1,48 +1,36 @@
-/**
- * 
- */
 package com.stackhive.tmsloginapp.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
-/**
- * @author Pranab Kumar Sahoo
- *
- */
 @Entity
-@Table(name="role")
+@Table(name = "role", uniqueConstraints = { @UniqueConstraint(name = "ROLE_UK", columnNames = "Role_Name") })
 public class Role {
-
 	@Id
-	@GeneratedValue(strategy= GenerationType.AUTO)
-	@Column(name = "role_id")
-	private int roleId;
-	
-	@Column(name = "role")
-	private String role;
+    @GeneratedValue
+    @Column(name = "Role_Id", nullable = false)
+	private Long roleId;
 
-	public Role() {
-	}
+	@Column(name = "Role_Name", length = 30, nullable = false)
+	private String roleName;
 
-	public int getRoleId() {
+	public Long getRoleId() {
 		return roleId;
 	}
 
-	public void setRoleId(int roleId) {
+	public void setRoleId(Long roleId) {
 		this.roleId = roleId;
 	}
 
-	public String getRole() {
-		return role;
+	public String getRoleName() {
+		return roleName;
 	}
 
-	public void setRole(String role) {
-		this.role = role;
+	public void setRoleName(String roleName) {
+		this.roleName = roleName;
 	}
-
 }
