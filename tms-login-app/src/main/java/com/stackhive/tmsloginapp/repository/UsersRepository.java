@@ -15,6 +15,6 @@ import com.stackhive.tmsloginapp.model.Users;
  */
 public interface UsersRepository extends JpaRepository<Users, Integer> {
 
-	Optional<Users> findByfirstName(String userName);
+	Optional<Users> findByEmail(String email);
 
 }
