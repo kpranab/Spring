@@ -36,14 +36,8 @@ public class Users {
 	@Column(name = "password")
 	private String password;
 	
-	@Column(name = "first_name")
-	private String firstName;
-	
-	@Column(name = "middle_name")
-	private String middleName;
-	
-	@Column(name = "last_name")
-	private String lastName;
+	@Column(name = "name")
+	private String name;
 	
 	@Column(name= "active")
 	private int active;
@@ -58,10 +52,8 @@ public class Users {
 	public Users(Users users){
 		this.active = users.active;
 		this.email = users.email;
-		this.firstName = users.firstName;
+		this.name = users.name;
 		this.id = users.id;
-		this.lastName = users.lastName;
-		this.middleName = users.middleName;
 		this.password = users.password;
 		this.roles = users.roles;
 	}
@@ -90,28 +82,12 @@ public class Users {
 		this.password = password;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public String getName() {
+		return name;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getMiddleName() {
-		return middleName;
-	}
-
-	public void setMiddleName(String middleName) {
-		this.middleName = middleName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public int getActive() {
