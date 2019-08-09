@@ -3,9 +3,8 @@
  */
 package com.stackhive.tmsloginapp.repository;
 
-import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import com.stackhive.tmsloginapp.model.Role;
 
@@ -13,7 +12,8 @@ import com.stackhive.tmsloginapp.model.Role;
  * @author Pranab Kumar Sahoo
  *
  */
-public interface UserRoleRepository extends JpaRepository<Role, Long>{
+@Repository("roleRepository")
+public interface RoleRepository extends JpaRepository<Role, Integer> {
+    Role findByRole(String role);
 
-	List<String> findByRole(String userName);
 }

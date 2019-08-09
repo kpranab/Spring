@@ -16,7 +16,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.stackhive.tmsloginapp.repository.UserRepository;
-import com.stackhive.tmsloginapp.repository.UserRoleRepository;
+import com.stackhive.tmsloginapp.repository.RoleRepository;
 
 /**
  * @author Pranab Kumar Sahoo
@@ -29,7 +29,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     private UserRepository userRepository;
  
     @Autowired
-    private UserRoleRepository userRoleRepository;
+    private RoleRepository userRoleRepository;
  
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
