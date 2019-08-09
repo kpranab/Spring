@@ -15,7 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 
-import com.stackhive.tmsloginapp.service.UserDetailsServiceImpl;
+import com.stackhive.tmsloginapp.service.UserService;
 
 /**
  * @author Pranab Kumar Sahoo
@@ -24,7 +24,7 @@ import com.stackhive.tmsloginapp.service.UserDetailsServiceImpl;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
  
     @Autowired
-    private UserDetailsServiceImpl userDetailsService;
+    private UserService userDetailsService;
  
     @Autowired
     private DataSource dataSource;
