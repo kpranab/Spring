@@ -19,7 +19,7 @@ import org.springframework.web.client.RestTemplate;
 @EnableDiscoveryClient
 public class WebclientMicroserviceServerApplication {
 	
-	public static final String ACCOUNTS_SERVICE_URL = "https://ACCOUNTS-MICROSERVICE";
+	public static final String ACCOUNTS_SERVICE_URL = "http://ACCOUNTS-MICROSERVICE";
 	
 	public static void main(String[] args) {
 		SpringApplication.run(WebclientMicroserviceServerApplication.class, args);

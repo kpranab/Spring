@@ -18,8 +18,8 @@ public class RemoteAccountRepository implements AccountRepository {
 	protected String serviceUrl;
 	
 	public RemoteAccountRepository(String serviceUrl) {
-		this.serviceUrl = serviceUrl.startsWith("https") ? serviceUrl
-				: "https://" + serviceUrl;
+		this.serviceUrl = serviceUrl.startsWith("http") ? serviceUrl
+				: "http://" + serviceUrl;
 	}
 	
 	@Override

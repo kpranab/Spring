@@ -13,11 +13,11 @@ eureka:
 # HTTP Server (Tomcat) Port
 server: 
   port: 2222
-  ssl:
-     key-alias: https-key
-     key-store-type: JKS
-     key-password: password
-     key-store: classpath:https-key.jks
+  #ssl:
+     #key-alias: https-key
+    # key-store-type: JKS
+     #key-password: password
+     #key-store: classpath:https-key.jks
 
 # Disable Spring Boot's "Whitelabel" default error page, so we can use our own
 error:
