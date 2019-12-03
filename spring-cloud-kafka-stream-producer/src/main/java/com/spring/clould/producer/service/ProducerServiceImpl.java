@@ -21,10 +21,10 @@ public class ProducerServiceImpl implements ProducerService {
 	ProducerTopics producerTopics;
 
 	@Override
-	public void publishAccountInfo(Account account) {
+	public boolean publishAccountInfo(Account account) {
 		log.info("Publishing account info {}", account);
 		MessageChannel messageChanel = producerTopics.account();
-		messageChanel.send(MessageBuilder.withPayload(account)
+		return messageChanel.send(MessageBuilder.withPayload(account)
 				.setHeader(MessageHeaders.CONTENT_TYPE, MimeTypeUtils.APPLICATION_JSON).build());
 
 	}

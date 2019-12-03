@@ -25,8 +25,7 @@ public class ProducerController {
 				.line_of_business(account.getLine_of_business())
 				.timestamp(System.currentTimeMillis())
 				.build();
-		producerService.publishAccountInfo(acc);
-		return "Success";
+		return producerService.publishAccountInfo(acc) ? "Successfully publishAccount":"Opps! Failed to publishAccount";
 	}
 	
 	@PostMapping("publishCreditHistory")

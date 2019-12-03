@@ -5,7 +5,7 @@ import com.spring.clould.producer.model.CreditHistory;
 
 public interface ProducerService {
 	
-	public void publishAccountInfo(Account account);
+	public boolean publishAccountInfo(Account account);
 	public void publishCreditHistory(CreditHistory creditHistory);
 
 }
