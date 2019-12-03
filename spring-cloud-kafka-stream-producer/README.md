@@ -15,3 +15,20 @@ spring-cloud-kafka-producer -> Name of image
 docker images
 docker rmi imagename/imageid -->To remove image from local
 
+
+Test Data for PostMan
+---------------------
+localhost:8081/publishAccount
+
+POST
+
+Body
+
+{
+      "account_number": 1011,
+      "account_status": "Active",
+      "account_type": "Saving",
+      "account_subtype": "Salary",
+      "line_of_business": "NA"
+}
+
