@@ -3,7 +3,7 @@ spring:
     stream:
       kafka:
         binder:
-          brokers: 127.0.0.1:9092
+          brokers: kafka:9092
       bindings:
         ACCOUNT:
           destination: ACCOUNT
