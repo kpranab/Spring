@@ -25,10 +25,27 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     depends_on:
       - zookeeper
-  producer:
-    image: spring-cloud-kafka-producer:latest
+  cassandra_db:
+      hostname: cassandra-db1
+      image: cassandra:latest
+      command: /bin/bash -c "sleep 1 && echo ' -- Pausing to let system catch up ... -->' && /docker-entrypoint.sh cassandra -f"
+      ports:
+        - "9042:9042"
+      healthcheck:
+        test: ["CMD", "cqlsh", "-u cassandra", "-p cassandra" ,"-e describe keyspaces"]
+        interval: 15s
+        timeout: 10s
+        retries: 10
+  consumer:
+    image: spring-cloud-kafka-stream-consumer:latest
+    environment:
+       CASSANDRA_HOST: cassandra_db
+       CASSANDRA_USER:
+       CASSANDRA_PW:
+       KAFKA_BROKERS: kafka:9092
     ports:
-      - '8081:8080'
+      - '8082:8082'
     restart: always
     depends_on:
       - kafka
+      - cassandra_db
