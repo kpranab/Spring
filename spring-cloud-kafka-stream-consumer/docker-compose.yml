@@ -1,7 +1,13 @@
 version: '3.5'
+
+networks:
+  app-tier:
+    driver: bridge
 services:
   zookeeper:
     image: zookeeper:latest
+    networks:
+      - app-tier
     hostname: zookeeper
     ports:
       - '2181:2181'
@@ -10,6 +16,8 @@ services:
       ZOOKEEPER_TICK_TIME: 2000
   kafka:
     image: wurstmeister/kafka
+    networks:
+      - app-tier
     hostname: kafka
     ports:
       - '9092:9092'
@@ -25,10 +33,11 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     depends_on:
       - zookeeper
-  cassandra_db:
-      hostname: cassandra-db1
+  cassandra:
+      hostname: cassandra
       image: cassandra:latest
-      command: /bin/bash -c "sleep 1 && echo ' -- Pausing to let system catch up ... -->' && /docker-entrypoint.sh cassandra -f"
+      networks:
+      - app-tier
       ports:
         - "9042:9042"
       healthcheck:
@@ -38,8 +47,10 @@ services:
         retries: 10
   consumer:
     image: spring-cloud-kafka-stream-consumer:latest
+    networks:
+      - app-tier
     environment:
-       CASSANDRA_HOST: cassandra_db
+       CASSANDRA_HOST: cassandra:9042
        CASSANDRA_USER:
        CASSANDRA_PW:
        KAFKA_BROKERS: kafka:9092
@@ -48,4 +59,4 @@ services:
     restart: always
     depends_on:
       - kafka
-      - cassandra_db
+      - cassandra
