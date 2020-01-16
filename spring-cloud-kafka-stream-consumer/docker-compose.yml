@@ -1,23 +1,22 @@
 version: '3.5'
-
 services:
   zookeeper:
     image: zookeeper:latest
     hostname: zookeeper
     ports:
-      - '2181:2181'
+      - '2182:2181'
     environment:
-      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_CLIENT_PORT: 2182
       ZOOKEEPER_TICK_TIME: 2000
   kafka:
     image: wurstmeister/kafka
     hostname: kafka
     ports:
-      - '9092:9092'
+      - '9093:9092'
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ADVERTISED_HOST_NAME: kafka
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2182
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
       KAFKA_DEFAULT_REPLICATION_FACTOR: 1
@@ -27,6 +26,7 @@ services:
     depends_on:
       - zookeeper
   cassandra:
+      container_name: cassandra
       hostname: cassandra
       image: cassandra:latest
       ports:
