@@ -1,10 +1,10 @@
 spring:
   data:
     cassandra:
-      keyspaceName: oneviewdashboard
-      contactPoints: localhost
+      keyspace-name: oneviewdashboard
+      contact-points: localhost
       port: 9042
-      schemaAction: CREATE_IF_NOT_EXISTS
+      schema-action: CREATE_IF_NOT_EXISTS
       password:
   cloud:
     stream:
