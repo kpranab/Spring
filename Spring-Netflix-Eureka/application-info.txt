@@ -18,15 +18,16 @@ http://localhost:2222/console/
 
 Account Client
 
-http://localhost:8080/accountList
+http://localhost:3333/accountList
 
-http://localhost:8080/accountDetails?number=1
+http://localhost:3333/accountDetails?number=1
 
+http://localhost:3333/employee
 
 Actuator
 
 http://localhost:2222/actuator
 
-http://localhost:8080/hystrix/  -->Open Hystrix dashboard
+http://localhost:3333/hystrix/  -->Open Hystrix dashboard
 
-http://localhost:8080/actuator/hystrix.stream -->Search this and monitor stream then hit your application url able to see graphs
+http://localhost:3333/actuator/hystrix.stream -->Search this and monitor stream then hit your application url able to see graphs

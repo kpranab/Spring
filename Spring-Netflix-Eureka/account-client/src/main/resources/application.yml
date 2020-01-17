@@ -4,6 +4,9 @@ spring:
   application:
     name: accounts-consumer
 
+# HTTP Server (Tomcat) Port
+server:
+  port: 3333
 # Discovery Server Access
 eureka:
   client:
