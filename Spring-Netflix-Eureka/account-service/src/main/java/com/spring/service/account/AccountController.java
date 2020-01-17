@@ -1,4 +1,4 @@
-package com.sapient.spring.service.account;
+package com.spring.service.account;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -45,5 +46,17 @@ public class AccountController {
 		accountRepository.save(new Account("Vishnu", 5412L));
 		
 		return "Account Crerated Successfully";
+	}
+	
+	@RequestMapping(value = "/employee", method = RequestMethod.GET)
+	public Employee firstPage() {
+
+		Employee emp = new Employee();
+		emp.setName("emp1");
+		emp.setDesignation("manager");
+		emp.setEmpId("1");
+		emp.setSalary(3000);
+
+		return emp;
 	}
 }

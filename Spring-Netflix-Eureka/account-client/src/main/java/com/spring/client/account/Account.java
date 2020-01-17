@@ -1,4 +1,4 @@
-package com.sapient.spring.client.account;
+package com.spring.client.account;
 
 import java.io.Serializable;
 

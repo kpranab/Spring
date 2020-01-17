@@ -1,4 +1,4 @@
-package com.sapient.spring.client.account;
+package com.spring.client.account;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,12 +17,12 @@ import org.springframework.web.client.RestTemplate;
 @EnableCircuitBreaker
 @EnableHystrixDashboard
 @EnableDiscoveryClient
-public class WebclientMicroserviceServerApplication {
+public class AccountConsumerEurekaApplication {
 	
-	public static final String ACCOUNTS_SERVICE_URL = "http://ACCOUNTS-MICROSERVICE";
+	public static final String ACCOUNTS_SERVICE_URL = "http://ACCOUNTS-PRODUCER";
 	
 	public static void main(String[] args) {
-		SpringApplication.run(WebclientMicroserviceServerApplication.class, args);
+		SpringApplication.run(AccountConsumerEurekaApplication.class, args);
 	}
 	
 	@Bean

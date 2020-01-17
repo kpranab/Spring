@@ -1,4 +1,4 @@
-package com.sapient.spring.server.discovery;
+package com.spring.server.servicediscovery;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

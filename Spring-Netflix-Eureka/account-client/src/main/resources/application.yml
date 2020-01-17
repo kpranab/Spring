@@ -2,7 +2,7 @@
 # Control the InternalResourceViewResolver:
 spring:
   application:
-    name: accounts-web
+    name: accounts-consumer
 
 # Discovery Server Access
 eureka:

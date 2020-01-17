@@ -1,4 +1,4 @@
-package com.sapient.spring.service.account;
+package com.spring.service.account;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

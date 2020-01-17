@@ -1,4 +1,4 @@
-package com.sapient.spring.client.account;
+package com.spring.client.account;
 
 import java.util.List;
 
@@ -7,7 +7,10 @@ import java.util.List;
  *
  */
 public interface AccountRepository {
-List<Account> getAllAccounts();
-	
+	List<Account> getAllAccounts();
+
 	Account getAccount(Long number);
+	
+	Employee getEmployee();
+
 }
