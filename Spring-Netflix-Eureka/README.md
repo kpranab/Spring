@@ -1,27 +1,27 @@
-Load Balanced RestTemplate
-Create using @LoadBalanced– Spring enhances it to service lookup & load balancing
+Load Balanced RestTemplate</br>
+Create using @LoadBalanced– Spring enhances it to service lookup & load balancing</br>
 <b>
- @Bean
- @LoadBalanced
- public RestTemplate restTemplate() {
-  return new RestTemplate();
+ @Bean</br>
+ @LoadBalanced</br>
+ public RestTemplate restTemplate() {</br>
+  return new RestTemplate();</br>
  }
- </b>
+ </b></br>
  Must inject using the same qualifier-
 
 If there are multiple RestTemplate you get the right one.
 It can be used to access multiple microservices
 
 <b>
-@Autowired
-@LoadBalanced
+@Autowired</br>
+@LoadBalanced</br>
 protected RestTemplate restTemplate;
-</b>
+</b></br>
 Load Balancing with Ribbon
 Our smart RestTemplate automatically integrates two Netflix utilities
 
-<b>Eureka</b> Service Discovery
+<b>Eureka</b> Service Discovery</br>
 <b>Ribbon</b> Client Side Load Balancer
-  
-<b>Eureka</b> returns the URL of all available instances
+</br>  
+<b>Eureka</b> returns the URL of all available instances</br>
 <b>Ribbon</b> determine the best available service too use
