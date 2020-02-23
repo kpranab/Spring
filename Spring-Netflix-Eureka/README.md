@@ -41,3 +41,16 @@ Unlike a fuse, which operates once and then must be replaced, A circuit breaker 
 <ul>
 <li>How long after a circuit trip to try again ?</li>
 </ul>
+<h4>Example</h4>
+<ul>
+  <li>Last n requests to considear for the decission : 5</li>
+  <li>How many of those should fail : 3</li>
+  <li>Timeout duration: 2s</li>
+  <li>How long to wait(sleep window):10s</li>
+</ul>
+<h4> We need fallback</h4>
+<ul>
+  <li>Throw an error</li>
+  <li>Return a fallback "default" response</li>
+  <li>Save previous responses(cache) and use that when possible</li>
+</ul>
