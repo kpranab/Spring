@@ -20,9 +20,9 @@ public class MovieRatingController {
 
     @RequestMapping("/user/{userId}")
     public UserRating getUserRating(@PathVariable("userId") String userId) {
-        List<Rating> ratings = Arrays.asList(new Rating("Pranab", 4), new Rating("Pramod", 5));
+        List<Rating> ratings = Arrays.asList(new Rating("100", 4), new Rating("500", 5));
         UserRating userRating = new UserRating();
-        userRating.setUserRating(ratings);
+        userRating.initData(userId);
         return userRating;
     }
 }
