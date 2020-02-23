@@ -1,4 +1,4 @@
-Load Balanced RestTemplate</br>
+<h3>Load Balanced RestTemplate</h3></br>
 Create using @LoadBalanced– Spring enhances it to service lookup & load balancing</br>
 <b>
  @Bean</br>
@@ -24,4 +24,20 @@ Our smart RestTemplate automatically integrates two Netflix utilities
 <b>Ribbon</b> Client Side Load Balancer
 </br>  
 <b>Eureka</b> returns the URL of all available instances</br>
-<b>Ribbon</b> determine the best available service too use
+<b>Ribbon</b> determine the best available service too use</br>
+
+<h3>Circuit Breaker :</h3></br>
+Its basic fuunction is to interupt current flow after a fault is detected</br>
+Unlike a fuse, which operates once and then must be replaced, A circuit breaker can be reset (Either manually or automatically) to resume normal operation.
+
+<h4>Circuit Breaker Parameters:</h4></br>
+<b>When does circuit trip ?</b>
+<ul>
+  <li>Last n requests to considear for the decision</li>
+  <li>How many of those should fail ?</li>
+  <li>Timeout duration</li>
+</ul>
+<b>When does the circuit un-trip ?</b>
+<ul>
+<li>How long after a circuit trip to try again ?</li>
+</ul>
