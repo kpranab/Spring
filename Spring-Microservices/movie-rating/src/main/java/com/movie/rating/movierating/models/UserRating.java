@@ -6,6 +6,7 @@ import java.util.List;
 public class UserRating {
 
     private String userId;
+    private List<Rating> userRating;
 
     public String getUserId() {
         return userId;
@@ -15,8 +16,6 @@ public class UserRating {
         this.userId = userId;
     }
 
-    private List<Rating> userRating;
-
     public List<Rating> getUserRating() {
         return userRating;
     }
@@ -24,13 +23,12 @@ public class UserRating {
     public void setUserRating(List<Rating> userRating) {
         this.userRating = userRating;
     }
+
     public void initData(String userId) {
         this.setUserId(userId);
         this.setUserRating(Arrays.asList(
                 new Rating("100", 3),
-                new Rating("200", 4),
-                new Rating("550", 5),
-                new Rating("270", 2)
+                new Rating("550", 5)
         ));
     }
 }

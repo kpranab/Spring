@@ -1,10 +1,20 @@
 package com.movie.catalog.moviecatalog.models;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class UserRating {
 
+    private String userId;
     private List<Rating> userRating;
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
     public List<Rating> getUserRating() {
         return userRating;
@@ -13,4 +23,5 @@ public class UserRating {
     public void setUserRating(List<Rating> userRating) {
         this.userRating = userRating;
     }
+
 }
