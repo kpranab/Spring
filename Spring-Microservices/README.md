@@ -1,4 +1,4 @@
-<h3>Load Balanced RestTemplate</h3></br>
+<h4>Load Balanced RestTemplate</h4>
 Create using @LoadBalanced– Spring enhances it to service lookup & load balancing</br>
 <b>
  @Bean</br>
@@ -66,3 +66,10 @@ Unlike a fuse, which operates once and then must be replaced, A circuit breaker 
   <li>Automatic recovery</li>
 </ul>
 <h4>Circut breakers will implement by using Hystrix framework</h4>
+<h4>Hystrix</h4>
+<ul>
+  <li>Open source library originally created by Netflix</li>
+  <li>Implements Circuit Breaker pattern so you don't have to do</li>
+  <li>Give it the configuration params and it does the work</li>
+  <li>Works well with Spring Boot</li>
+</ul>
