@@ -29,7 +29,12 @@ Our smart RestTemplate automatically integrates two Netflix utilities
 <h3>Circuit Breaker :</h3></br>
 Its basic fuunction is to interupt current flow after a fault is detected</br>
 Unlike a fuse, which operates once and then must be replaced, A circuit breaker can be reset (Either manually or automatically) to resume normal operation.
-
+<h4>Circuit Breaker Pattern:</h4></br>
+<ul>
+  <li>When to break circuit</li>
+  <li>what to do when circuit breaks</li>
+  <li>When to resume request</li>
+</ul>
 <h4>Circuit Breaker Parameters:</h4></br>
 <b>When does circuit trip ?</b>
 <ul>
@@ -48,9 +53,16 @@ Unlike a fuse, which operates once and then must be replaced, A circuit breaker 
   <li>Timeout duration: 2s</li>
   <li>How long to wait(sleep window):10s</li>
 </ul>
-<h4> We need fallback</h4>
+<h4>We need fallback</h4>
 <ul>
   <li>Throw an error</li>
   <li>Return a fallback "default" response</li>
   <li>Save previous responses(cache) and use that when possible</li>
 </ul>
+<h4>Why circut breakers</h4>
+<ul>
+  <li>Failing fast</li>
+  <li>Fallback finctionality</li>
+  <li>Automatic recovery</li>
+</ul>
+<h4>Circut breakers will implement by using Hystrix framework</h4>
