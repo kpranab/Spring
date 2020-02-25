@@ -73,3 +73,10 @@ Unlike a fuse, which operates once and then must be replaced, A circuit breaker 
   <li>Give it the configuration params and it does the work</li>
   <li>Works well with Spring Boot</li>
 </ul>
+<h4>Adding Hystrix to a Spring Boot Microservices</h4>
+<ul>
+  <li>Add the Maven spring-cloud-starter-netflix-hystrix dependency</li>
+  <li>Add @EnableCircuitBreaker to the application class</li>
+  <li>Add @HystrixCommanmd to the methods that need circuit breakers</li>
+  <li>Configure Hystrix behavior</li>
+</ul>
