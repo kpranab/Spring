@@ -80,3 +80,4 @@ Unlike a fuse, which operates once and then must be replaced, A circuit breaker 
   <li>Add @HystrixCommanmd to the methods that need circuit breakers</li>
   <li>Configure Hystrix behavior</li>
 </ul>
+<p>Once we refactor the multiple microservices call to indivisual method and implement fallback for each method and if one of the service goes down our fallback will not work as Hystrix uses Proxy class to call the fallback method , In order to resolve this problem we need to extract indivisual service call method and fallback methods to a separate class and inject them in the actual call where we are calling multiple microservices</p>
