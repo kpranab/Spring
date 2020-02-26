@@ -101,6 +101,6 @@ Unlike a fuse, which operates once and then must be replaced, A circuit breaker 
             },
 </span>
 <h4>Hystrix Dashboard</h4>
-http://localhost:8081/hystrix
-http://localhost:8081//actuator/hystrix.stream
+<p><a href="">http://localhost:8081/hystrix</a></p>
+<p><a href="">http://localhost:8081//actuator/hystrix.stream</a></p>
 <p>In Order to check circuit open make one service down and send more request once it failed you can bale to see in above dashboard</p> 
