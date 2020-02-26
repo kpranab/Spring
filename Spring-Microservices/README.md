@@ -80,4 +80,23 @@ Unlike a fuse, which operates once and then must be replaced, A circuit breaker 
   <li>Add @HystrixCommanmd to the methods that need circuit breakers</li>
   <li>Configure Hystrix behavior</li>
 </ul>
-<p>Once we refactor the multiple microservices call to indivisual method and implement fallback for each method and if one of the service goes down our fallback will not work as Hystrix uses Proxy class to call the fallback method , In order to resolve this problem we need to extract indivisual service call method and fallback methods to a separate class and inject them in the actual call where we are calling multiple microservices</p>
+<p>Once we refactor the multiple microservices call to indivisual method and implement fallback for each method and if one of the service goes down our fallback will not work as Hystrix uses Proxy class to call the fallback method , In order to resolve this problem we need to extract indivisual service call method and fallback methods to a separate class and inject them in the actual call where we are calling multiple microservices.</p>
+<h4>Example for configuration Hystrix parameter</h4>
+<span>commandProperties = {
+                    @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "2000"),
+                    @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "5"),
+                    @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "50"),
+                    @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "5000")
+            }
+</span>
+<h4>Bulkhead Pattern : </h4>
+<p>In general, the goal of the bulkhead pattern is to avoid faults in one part of a system to take the entire system down. The term comes from ships where a ship is divided in separate watertight compartments to avoid a single hull breach to flood the entire ship; it will only flood one bulkhead.</p>
+
+<a href="https://stackoverflow.com/questions/30391809/what-is-bulkhead-pattern-used-by-hystrix">Click hear for more info on Bulkhead Pattern</a>
+<h4>Example for configuration Bulkhead Pattern</h4>
+<span>threadPoolKey = "userRatingThreadPool",
+            threadPoolProperties = {
+                    @HystrixProperty(name = "coreSize", value = "20"),
+                    @HystrixProperty(name = "maxQueueSize", value = "10")
+            },
+</span>
