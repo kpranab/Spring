@@ -100,3 +100,7 @@ Unlike a fuse, which operates once and then must be replaced, A circuit breaker 
                     @HystrixProperty(name = "maxQueueSize", value = "10")
             },
 </span>
+<h4>Hystrix Dashboard</h4>
+http://localhost:8081/hystrix
+http://localhost:8081//actuator/hystrix.stream
+<p>In Order to check circuit open make one service down and send more request once it failed you can bale to see in above dashboard</p> 
