@@ -1,10 +1,10 @@
-#Run Application from CMD 
+# Run Application from CMD 
 mvn spring-boot:run
 
-#Build Jar File
+# Build Jar File
 mvn clean install
 
-#Created Docker image from docker file
+# Created Docker image from docker file
 - Create a file name with Dockerfile in project directory
 - Then add required info and run below command in the location where Dockerfile is present
 docker build -t spring-cloud-kafka-producer .
@@ -15,8 +15,16 @@ spring-cloud-kafka-producer -> Name of image
 docker images
 docker rmi imagename/imageid -->To remove image from local
 
+# Note :
 
-Test Data for PostMan
+Bindings — a collection of interfaces that identify the input and output channels declaratively
+Binder — messaging-middleware implementation such as Kafka or RabbitMQ
+Channel — represents the communication pipe between messaging-middleware and the application
+StreamListeners — message-handling methods in beans that will be automatically invoked on a message from the channel after the MessageConverter does the serialization/deserialization between middleware-specific events and domain object types / POJOs
+Message Schemas — used for serialization and deserialization of messages, these schemas can be statically read from a location or loaded dynamically, supporting the evolution of domain object types
+Messages designated to destinations are delivered by the Publish-Subscribe messaging pattern.
+
+# Test Data for PostMan
 ---------------------
 localhost:8081/publishAccount
 
