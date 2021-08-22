@@ -29,7 +29,54 @@ public class FlixAndMonoFilterTest {
                 .log();
 
         StepVerifier.create(namesFlux)
-                .expectNext("hello","tata")
+                .expectNext("hello","tata"
+                )
+                .verifyComplete();
+    }
+
+    @Test
+    public void transformUsingMap(){
+        Flux<String> nameFlux = Flux.fromIterable(names)
+                .map(s -> s.toUpperCase())
+                .log();
+
+        StepVerifier.create(nameFlux)
+                .expectNext("HI","HELLO","BYE","TATA")
+                .verifyComplete();
+    }
+
+    @Test
+    public void transformUsingMap_Length(){
+        Flux<Integer> nameFlux = Flux.fromIterable(names)
+                .map(s -> s.length())
+                .log();
+
+        StepVerifier.create(nameFlux)
+                .expectNext(2,5,3,4)
+                .verifyComplete();
+    }
+
+    @Test
+    public void transformUsingMap_Length_Repeat(){
+        Flux<Integer> nameFlux = Flux.fromIterable(names)
+                .map(s -> s.length())
+                .repeat(1)
+                .log();
+
+        StepVerifier.create(nameFlux)
+                .expectNext(2,5,3,4,2,5,3,4)
+                .verifyComplete();
+    }
+
+    @Test
+    public void transformUsingMap_Filter(){
+        Flux<String> nameFlux = Flux.fromIterable(names)
+                .filter(s -> s.length() > 4)
+                .map(s -> s.toUpperCase())
+                .log();
+
+        StepVerifier.create(nameFlux)
+                .expectNext("HELLO")
                 .verifyComplete();
     }
 }
